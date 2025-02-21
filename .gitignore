@@ -31,3 +31,10 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Docker
+.docker/volumes/
+*.log
+
+# Liquibase
+liquibase.properties
