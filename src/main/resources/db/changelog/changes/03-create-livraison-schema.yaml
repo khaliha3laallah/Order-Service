@@ -1,10 +1,16 @@
 databaseChangeLog:
   - changeSet:
       id: 3
-      author: dev
+      author: omario
+      runOnChange: true
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            - tableExists:
+                tableName: livraison
       changes:
         - createTable:
-            tableName: delivery
+            tableName: livraison
             columns:
               - column:
                   name: id
@@ -19,25 +25,25 @@ databaseChangeLog:
                   constraints:
                     nullable: false
                     unique: true
-                    foreignKeyName: fk_delivery_commande
+                    foreignKeyName: fk_livraison_commande
                     references: commande(id)
               - column:
-                  name: tracking_number
+                  name: numero_suivi
                   type: varchar(50)
                   constraints:
                     nullable: true
               - column:
-                  name: status
+                  name: statut
                   type: varchar(20)
                   constraints:
                     nullable: false
               - column:
-                  name: created_date
+                  name: date_creation
                   type: timestamp
                   constraints:
                     nullable: false
               - column:
-                  name: updated_date
+                  name: date_modification
                   type: timestamp
                   constraints:
                     nullable: true

@@ -1,10 +1,16 @@
 databaseChangeLog:
   - changeSet:
       id: 2
-      author: dev
+      author: omario
+      runOnChange: true
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            - tableExists:
+                tableName: commande_item
       changes:
         - createTable:
-            tableName: order_product
+            tableName: commande_item
             columns:
               - column:
                   name: id
@@ -18,20 +24,20 @@ databaseChangeLog:
                   type: bigint
                   constraints:
                     nullable: false
-                    foreignKeyName: fk_order_product_commande
+                    foreignKeyName: fk_commande_item_commande
                     references: commande(id)
               - column:
-                  name: product_id
+                  name: produit_id
                   type: bigint
                   constraints:
                     nullable: false
               - column:
-                  name: quantity
+                  name: quantite
                   type: int
                   constraints:
                     nullable: false
               - column:
-                  name: price
+                  name: prix
                   type: decimal(10,2)
                   constraints:
                     nullable: false

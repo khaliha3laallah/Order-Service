@@ -1,7 +1,13 @@
 databaseChangeLog:
   - changeSet:
       id: 1
-      author: dev
+      author: omario
+      runOnChange: true
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+          - tableExists:
+             tableName: commande
       changes:
         - createTable:
             tableName: commande

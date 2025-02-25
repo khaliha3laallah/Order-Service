@@ -1,7 +1,9 @@
 databaseChangeLog:
   - include:
-      file: db/changelog/changes/01-create-order-schema.yaml
+      file: db/changelog/changes/00-drop-all-tables.yaml
   - include:
-      file: db/changelog/changes/02-create-order-product-schema.yaml
+      file: db/changelog/changes/01-create-commande-schema.yaml
   - include:
-      file: db/changelog/changes/03-create-delivery-schema.yaml
+      file: db/changelog/changes/02-create-commande-item-schema.yaml
+  - include:
+      file: db/changelog/changes/03-create-livraison-schema.yaml
