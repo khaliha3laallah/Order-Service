@@ -17,6 +17,6 @@ public interface CommandeRepository extends JpaRepository<Commande, Long> {
 
     List<Commande> findByStatut(StatutCommande statut);
 
-    @Query("SELECT c FROM Commande c WHERE c.statut = com.projects.orderservice.entity.Commande.StatutCommande.CREEE AND c.date < :dateLimit")
+    @Query("SELECT c FROM Commande c WHERE c.statut = com.projects.orderservice.domain.enums.StatutCommande.CREEE AND c.date < :dateLimit")
     List<Commande> findCommandesEnAttenteDepuisPlus24h(LocalDateTime dateLimit);
 }
