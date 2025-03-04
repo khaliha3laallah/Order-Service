@@ -21,6 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -46,8 +47,8 @@ public class CommandeServiceImpl implements CommandeService {
             CommandeItemRepository commandeItemRepository,
             LivraisonRepository livraisonRepository,
             CommandeMapper mapper,
-            ProductClient productClient,
-            PaymentClient paymentClient) {
+            @Qualifier("mockProductClient") ProductClient productClient,
+            @Qualifier("mockPaymentClient") PaymentClient paymentClient) {
         this.commandeRepository = commandeRepository;
         this.commandeItemRepository = commandeItemRepository;
         this.livraisonRepository = livraisonRepository;
