@@ -36,7 +36,5 @@ public class CommandeItem {
         return prix.multiply(BigDecimal.valueOf(quantite));
     }
 
-    public void setCommande(Commande commande) {
-        this.commande = commande;
-    }
+
 }

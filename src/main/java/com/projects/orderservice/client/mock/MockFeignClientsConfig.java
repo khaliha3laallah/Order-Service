@@ -35,7 +35,7 @@ public class MockFeignClientsConfig {
                 product.setId(id);
                 product.setNom("Produit Test " + id);
                 product.setDescription("Description du produit " + id);
-                product.setPrix(new BigDecimal("99.99"));
+                product.setPrix(new BigDecimal("49.99"));
                 product.setCategorieId(1L);
                 return ResponseEntity.ok(product);
             }
